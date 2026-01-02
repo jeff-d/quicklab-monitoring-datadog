@@ -151,7 +151,7 @@ locals {
 }
 
 resource "datadog_integration_aws_account" "datadog_integration" {
-  account_tags   = [for k, v in local.datadog_tags : "${k}:${v}"] # list(string) Tags to apply to all metrics in the account. 
+  # account_tags   = [for k, v in local.datadog_tags : "${k}:${v}" if v != null] # list(string) Tags to apply to all metrics in the account. 
   aws_account_id = var.aws_account_id
   aws_partition  = data.aws_partition.current.partition
 
